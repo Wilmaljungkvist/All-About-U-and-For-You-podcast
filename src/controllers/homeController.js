@@ -17,4 +17,15 @@ export class HomeController {
       next(error)
     }
   }
+
+
+  async subscribeNewsletter (req, res, next) {
+    try {
+      console.log('jag är här inne')
+      req.session.flash = { type: 'success', text: 'Successfully signed up to the newspaper' }
+      res.redirect('/')
+    } catch (error) {
+      next(error)
+    }
+  }
 }
