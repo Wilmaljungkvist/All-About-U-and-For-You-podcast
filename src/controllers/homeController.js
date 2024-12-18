@@ -21,11 +21,20 @@ export class HomeController {
 
   async subscribeNewsletter (req, res, next) {
     try {
-      console.log('jag är här inne')
       req.session.flash = { type: 'success', text: 'Successfully signed up to the newspaper' }
       res.redirect('/')
     } catch (error) {
       next(error)
+    }
+  }
+
+  async sendMail (req, res, next) {
+    try {
+      console.log(req.body)
+      req.session.flash = { type: 'success', text: 'Successfully sent mail' }
+      res.redirect('/')
+    } catch (error) {
+
     }
   }
 }
